@@ -15,18 +15,6 @@ class CardController extends FOSRestController
 {
   /**
    * Lists all Card.
-   * @Rest\Get("/")
-   *
-   * @return Response
-   */
-  public function getIndexAction()
-  {
-    echo 'ici';
-	die;
-  }
-  
-  /**
-   * Lists all Card.
    * @Rest\Get("/cards")
    *
    * @return Response
@@ -37,6 +25,7 @@ class CardController extends FOSRestController
     $cards = $repository->findall();
     return $this->handleView($this->view($cards));
   }
+  
   /**
    * Create Card.
    * @Rest\Post("/card")
@@ -57,4 +46,42 @@ class CardController extends FOSRestController
     }
     return $this->handleView($this->view($form->getErrors()));
   }
+  
+  /**
+   * Edit Card.
+   * @Rest\Get("/card/{id}", requirements={"id"="\d+"})
+   *
+   * @return Response
+   */
+  public function editCardAction(Request $request){
+	$repository = $this->getDoctrine()->getRepository(Card::class);
+	$card = $repository->find($request->get('id'));
+
+	if(empty($card)){
+		return $this->handleView($this->view(['message' => 'Card not found'], Response::HTTP_CREATED));
+	}
+	return $this->handleView($this->view($card));
+  }
+  
+  /**
+   * Delete Card.
+   * @Rest\Delete("/card/{id}", requirements={"id"="\d+"})
+   *
+   * @return Response
+   */
+  public function deleteCardAction(Request $request){
+	$id = $request->get('id');
+	$repository = $this->getDoctrine()->getRepository(Card::class);
+	$card = $repository->find($id);
+
+	if(empty($card)){
+		return $this->handleView($this->view(['message' => 'Card not found'], Response::HTTP_CREATED));
+	}
+	
+	$em = $this->getDoctrine()->getManager();
+	$em->remove($card);
+	$em->flush();
+	return $this->handleView($this->view(['message' => 'Card with ID:'.$id.' is deleted'], Response::HTTP_CREATED));
+  }
+  
 }
