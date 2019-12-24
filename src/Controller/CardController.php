@@ -8,11 +8,23 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use App\Entity\Card;
 use App\Form\CardType;
 /**
- * Movie controller.
+ * Card controller.
  * @Route("/api", name="api_")
  */
 class CardController extends FOSRestController
 {
+  /**
+   * Lists all Card.
+   * @Rest\Get("/")
+   *
+   * @return Response
+   */
+  public function getIndexAction()
+  {
+    echo 'ici';
+	die;
+  }
+  
   /**
    * Lists all Card.
    * @Rest\Get("/cards")
