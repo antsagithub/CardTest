@@ -1,5 +1,6 @@
 <?php
 namespace App\Controller;
+
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use FOS\RestBundle\Controller\FOSRestController;
@@ -38,7 +39,7 @@ class CardController extends FOSRestController
     $form = $this->createForm(CardType::class, $card);
     $data = json_decode($request->getContent(), true);
     $form->submit($data);
-    if ($form->isSubmitted() && $form->isValid()) {
+    if($form->isSubmitted() && $form->isValid()) {
       $em = $this->getDoctrine()->getManager();
       $em->persist($card);
       $em->flush();
