@@ -67,11 +67,11 @@ Body : {"name": "test 1", "description": "test 1 description"}
 =============
 #BUNDLE REFER
 =============
-friendsofsymfony/rest-bundle
-sensio/framework-extra-bundle
-jms/serializer-bundle
-symfony/validator
-symfony/form
-symfony/orm-pack
-friendsofsymfony/user-bundle
+friendsofsymfony/rest-bundle,
+sensio/framework-extra-bundle,
+jms/serializer-bundle,
+symfony/validator,
+symfony/form,
+symfony/orm-pack,
+friendsofsymfony/user-bundle,
 friendsofsymfony/oauth-server-bundle
