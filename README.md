@@ -1,8 +1,7 @@
 # CardTest
 
-====================
-#To install on local 
-====================
+# To install on local 
+
 - git clone https://github.com/antsagithub/CardTest
 - cd CardTest
 - composer install
@@ -24,9 +23,9 @@
 
 - Add this line on hosts file : 127.0.0.1 api.rest.local
 
-==================
-#LOGIN
-==================
+
+# LOGIN
+
 - POST http://api.rest.local:8000/createClient 
 Body : {"redirect-uri": "api.rest.local:8000", "grant-type": "password"}
 ===> Return : "CLIENT_ID" and "CLIENT_SECRET"
@@ -35,27 +34,27 @@ Body : {"redirect-uri": "api.rest.local:8000", "grant-type": "password"}
 Body : {"client_id": "CLIENT_ID", "client_secret": "CLIENT_SECRET", "grant_type": "password", "username": "test_user", "password": "test"}
 ===> Return : "ACCESS_TOKEN"
 
-===========================
-#To show full list of card
-==========================
+
+# To show full list of card
+
 GET http://api.rest.local:8000/api/cards
 Header: {"Authorization:", "Bearer ACCESS_TOKEN"}
 
-=======================
-#To show a card with ID
-=======================
+
+# To show a card with ID
+
 GET http://api.rest.local:8000/api/card/{ID}
 Header: {"Authorization:", "Bearer ACCESS_TOKEN"}
 
-=================
-#To delete a card
-=================
+
+# To delete a card
+
 DELETE http://api.rest.local:8000/api/card/{ID}
 Header: {"Authorization:", "Bearer ACCESS_TOKEN"}
 
-==============
-#To add a card
-==============
+
+# To add a card
+
 POST http://api.rest.local:8000/api/card
 Header: {"Authorization:", "Bearer ACCESS_TOKEN"}
 Body : {"name": "test 1", "description": "test 1 description"}
@@ -64,9 +63,9 @@ Body : {"name": "test 1", "description": "test 1 description"}
 
 
 
-=============
-#BUNDLE REFER
-=============
+
+# BUNDLE REFER
+
 friendsofsymfony/rest-bundle,
 sensio/framework-extra-bundle,
 jms/serializer-bundle,
