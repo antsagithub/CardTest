@@ -11,6 +11,10 @@ fos_rest:
     access_denied_listener:
         json: true
     view:
-        view_response_listener: 'force'
+        view_response_listener: true
         formats:
             json: true
+#    exception:
+#        exception_controller: 'fos_rest.exception.controller:showAction'
+#        codes:
+#            Doctrine\ORM\EntityNotFoundException: 404
