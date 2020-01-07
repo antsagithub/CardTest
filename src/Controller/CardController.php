@@ -1,18 +1,6 @@
 <?php
 namespace App\Controller;
 
-/*
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
-use FOS\RestBundle\Controller\FOSRestController;
-use FOS\RestBundle\Controller\Annotations as Rest;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use App\Entity\Card;
-use App\Form\CardType;
-*/
-
-
-
 use App\Services\CardService;
 use App\Entity\Card;
 use App\Model\CardRepositoryInterface;
