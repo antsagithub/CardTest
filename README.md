@@ -3,6 +3,11 @@
 ====================
 #To install on local 
 ====================
+- git clone https://github.com/antsagithub/CardTest
+- cd CardTest
+- composer install
+- php bin/console doctrine:schema:create
+- php bin/console fos:user:create test_user #create the user with password "test"
 
 - Create virtual host to api.rest.local
 
@@ -54,3 +59,19 @@ Header: {"Authorization:", "Bearer ACCESS_TOKEN"}
 POST http://api.rest.local:8000/api/card
 Header: {"Authorization:", "Bearer ACCESS_TOKEN"}
 Body : {"name": "test 1", "description": "test 1 description"}
+
+
+
+
+
+=============
+#BUNDLE REFER
+=============
+friendsofsymfony/rest-bundle,
+sensio/framework-extra-bundle,
+jms/serializer-bundle,
+symfony/validator,
+symfony/form,
+symfony/orm-pack,
+friendsofsymfony/user-bundle,
+friendsofsymfony/oauth-server-bundle
