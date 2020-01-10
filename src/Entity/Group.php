@@ -1,13 +1,12 @@
 <?php
 namespace App\Entity;
-
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 /**
  * @ORM\Entity
- * @ORM\Table(name="card")
+ * @ORM\Table(name="group")
  */
-class Card {
+class Group {
 	
 	/**
 	* @ORM\Column(type="integer")
@@ -30,20 +29,11 @@ class Card {
 	private $description;
 	
 	/**
-     * One Card have Many Group.
-     * @ORM\ManyToMany(targetEntity="Group")
-     * @ORM\JoinTable(name="card_group",
-     *      joinColumns={@ORM\JoinColumn(name="card_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="group_id", referencedColumnName="id", unique=false)}
-     *      )
+     * One group have One family.
+     * @ORM\OneToOne(targetEntity="Family", inversedBy="group")
+     * @ORM\JoinColumn(name="family_id", referencedColumnName="id")
      */
-    private $groups;
-	
-	
-	public function __construct()
-    {
-        $this->groups = new \Doctrine\Common\Collections\ArrayCollection();
-    }
+    private $family;
   
 	/**
 	* @return mixed

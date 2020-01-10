@@ -84,5 +84,4 @@ final class CardController extends FOSRestController
         //return a 204 HTTP NO CONTENT response. The object is deleted.
         return View::create([], Response::HTTP_NO_CONTENT);
 	}
-  
 }
