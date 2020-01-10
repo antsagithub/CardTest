@@ -30,7 +30,6 @@ class Card {
 	private $description;
 	
 	/**
-     * One Card have Many Group.
      * @ORM\ManyToMany(targetEntity="Group")
      * @ORM\JoinTable(name="card_group",
      *      joinColumns={@ORM\JoinColumn(name="card_id", referencedColumnName="id")},
